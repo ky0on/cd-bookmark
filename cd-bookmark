@@ -68,9 +68,10 @@ function _cdbookmark_list_bookmark_id() {
 }
 
 function _cdbookmark_get_bookmark() {
-  home=$HOME
+  # home=$HOME
   local escaped_id="$(echo $1 | sed -e 's/[^a-zA-Z0-9<>]/\\&/g')"
-  cat "$BOOKMARK_FILE" | grep -E "^${escaped_id}\\|" | cut -d '|' -f 2 | head -n 1 | sed -e "s|HOME|${home}|g"
+  cat "$BOOKMARK_FILE" | grep -E "^${escaped_id}\\|" | cut -d '|' -f 2 | head -n 1"
+  # cat "$BOOKMARK_FILE" | grep -E "^${escaped_id}\\|" | cut -d '|' -f 2 | head -n 1 | sed -e "s|HOME|${home}|g"
 }
 
 function _cdbookmark_init_bookmark() {
